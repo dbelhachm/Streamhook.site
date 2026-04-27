@@ -28,25 +28,34 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --gold: #c9a84c;
             --gold-light: #e8c96a;
-            --gold-dim: rgba(201,168,76,0.18);
-            --gold-glow: rgba(201,168,76,0.35);
-            --ink: #05060a;
-            --ink2: #0c0d14;
-            --ink3: #12141f;
-            --ink4: #181a27;
-            --border: rgba(255,255,255,0.06);
-            --border-gold: rgba(201,168,76,0.25);
-            --text: #eceef5;
-            --text-muted: #7c809a;
-            --text-dim: #3a3d52;
-            --cyan: #3ae8c8;
-            --cyan-dim: rgba(58,232,200,0.12);
+            --gold-dim: rgba(201,168,76,0.12);
+            --gold-glow: rgba(201,168,76,0.3);
+            /* ── SPORTS THEME UPGRADES ── */
+            --neon: #00e676;
+            --neon-dim: rgba(0,230,118,0.12);
+            --neon-glow: rgba(0,230,118,0.4);
+            --neon-border: rgba(0,230,118,0.3);
+            --red-live: #ff2244;
+            --red-live-dim: rgba(255,34,68,0.14);
+            --red-live-glow: rgba(255,34,68,0.45);
+            --ink: #030508;
+            --ink2: #080a10;
+            --ink3: #0e1018;
+            --ink4: #141720;
+            --border: rgba(255,255,255,0.07);
+            --border-gold: rgba(201,168,76,0.22);
+            --border-neon: rgba(0,230,118,0.25);
+            --text: #e8ecf5;
+            --text-muted: #6e7490;
+            --text-dim: #32364a;
+            --cyan: #00e676;
+            --cyan-dim: rgba(0,230,118,0.1);
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -62,15 +71,16 @@
             overflow-x: hidden;
         }
 
-        /* ── RADIAL AMBIENT LIGHTS ── */
+        /* ── STADIUM AMBIENT LIGHTS ── */
         body::before {
             content: '';
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(ellipse 60% 40% at 80% -10%, rgba(201,168,76,0.07) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 50% at -10% 60%, rgba(58,232,200,0.05) 0%, transparent 70%),
-                radial-gradient(ellipse 40% 30% at 50% 110%, rgba(201,168,76,0.05) 0%, transparent 70%);
+                radial-gradient(ellipse 55% 35% at 85% -5%, rgba(0,230,118,0.06) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 45% at -5% 65%, rgba(0,230,118,0.04) 0%, transparent 65%),
+                radial-gradient(ellipse 70% 40% at 50% 105%, rgba(201,168,76,0.05) 0%, transparent 65%),
+                radial-gradient(ellipse 30% 30% at 20% 20%, rgba(255,34,68,0.03) 0%, transparent 60%);
             pointer-events: none;
             z-index: 0;
         }
@@ -133,24 +143,26 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            background: rgba(201,168,76,0.1);
-            border: 1px solid var(--border-gold);
-            padding: 5px 12px;
+            background: var(--red-live-dim);
+            border: 1px solid rgba(255,34,68,0.4);
+            padding: 5px 14px;
             border-radius: 100px;
-            font-family: 'Syne', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            color: var(--red-live);
             text-transform: uppercase;
+            box-shadow: 0 0 12px rgba(255,34,68,0.15);
         }
         .live-dot {
-            width: 6px; height: 6px;
-            background: var(--gold);
+            width: 7px; height: 7px;
+            background: var(--red-live);
             border-radius: 50%;
-            animation: blink 1.6s ease-in-out infinite;
+            animation: blink 1.2s ease-in-out infinite;
+            box-shadow: 0 0 8px var(--red-live);
         }
-        @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.7)} }
+        @keyframes blink { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.25;transform:scale(0.6)} }
 
         /* ── HERO ── */
         .hero {
@@ -180,18 +192,20 @@
         }
 
         .hero h1 {
-            font-family: 'Syne', sans-serif;
-            font-weight: 800;
-            font-size: clamp(36px, 9vw, 60px);
-            line-height: 1.0;
-            letter-spacing: -1.5px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: clamp(38px, 10vw, 66px);
+            line-height: 0.95;
+            letter-spacing: -0.5px;
             margin-bottom: 18px;
             color: #fff;
+            text-transform: uppercase;
         }
         .hero h1 .accent {
-            color: var(--gold);
+            color: var(--neon);
             display: block;
-            font-weight: 800;
+            font-weight: 700;
+            text-shadow: 0 0 30px rgba(0,230,118,0.35);
         }
 
         .hero-sub {
@@ -306,28 +320,30 @@
 
         /* ── SECTION LABEL ── */
         .section-label {
-            font-family: 'Syne', sans-serif;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 2.5px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--text-dim);
+            color: var(--neon);
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0,230,118,0.3);
         }
         .section-label::before, .section-label::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: var(--border);
+            background: linear-gradient(90deg, transparent, rgba(0,230,118,0.2), transparent);
         }
         .section-label .dot-accent {
-            width: 4px; height: 4px;
-            background: var(--gold);
+            width: 5px; height: 5px;
+            background: var(--neon);
             border-radius: 50%;
             display: inline-block;
+            box-shadow: 0 0 8px var(--neon);
         }
 
         /* ── MATCH CARDS ── */
@@ -340,29 +356,39 @@
         }
 
         .match-card {
-            background: var(--ink3);
-            border: 1px solid var(--border);
+            background: linear-gradient(160deg, var(--ink3) 0%, var(--ink2) 100%);
+            border: 1px solid rgba(0,230,118,0.12);
             border-radius: 16px;
             padding: 20px 18px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             cursor: pointer;
-            transition: border-color 0.25s, transform 0.15s, background 0.25s;
+            transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04);
         }
+        /* top neon scanner line */
         .match-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--neon) 50%, transparent 100%);
             opacity: 0;
-            transition: opacity 0.25s;
+            transition: opacity 0.3s;
+        }
+        /* subtle green field gradient overlay */
+        .match-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(0,230,118,0.04) 0%, transparent 70%);
+            pointer-events: none;
         }
         .match-card:hover {
-            border-color: var(--border-gold);
-            background: var(--ink4);
-            transform: translateY(-2px);
+            border-color: var(--neon-border);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 20px rgba(0,230,118,0.08);
         }
         .match-card:hover::before { opacity: 1; }
         .match-card:active { transform: scale(0.99) translateY(0); }
@@ -373,41 +399,44 @@
             align-items: center;
             margin-bottom: 18px;
             padding-bottom: 14px;
-            border-bottom: 1px solid var(--border);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         .card-live {
             display: flex;
             align-items: center;
             gap: 6px;
-            font-family: 'Syne', sans-serif;
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: var(--cyan);
+            font-family: 'Oswald', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            color: var(--red-live);
             text-transform: uppercase;
-            background: var(--cyan-dim);
-            padding: 4px 10px;
+            background: var(--red-live-dim);
+            padding: 4px 11px;
             border-radius: 100px;
-            border: 1px solid rgba(58,232,200,0.2);
+            border: 1px solid rgba(255,34,68,0.3);
+            box-shadow: 0 0 10px rgba(255,34,68,0.1);
         }
         .card-live .dot {
-            width: 5px; height: 5px;
-            background: var(--cyan);
+            width: 6px; height: 6px;
+            background: var(--red-live);
             border-radius: 50%;
-            animation: blink 1.6s ease-in-out infinite;
+            animation: blink 1.2s ease-in-out infinite;
+            box-shadow: 0 0 6px var(--red-live);
         }
 
         .card-league {
-            font-family: 'Syne', sans-serif;
-            font-size: 9px;
-            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: var(--gold);
+            color: var(--neon);
             display: flex;
             align-items: center;
             gap: 5px;
+            text-shadow: 0 0 8px rgba(0,230,118,0.4);
         }
 
         .match-body {
@@ -424,17 +453,20 @@
             gap: 10px;
         }
         .team img {
-            width: 48px; height: 48px;
+            width: 52px; height: 52px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
-            transition: transform 0.2s;
+            filter: drop-shadow(0 2px 10px rgba(0,0,0,0.7));
+            transition: transform 0.25s, filter 0.25s;
         }
-        .match-card:hover .team img { transform: scale(1.05); }
+        .match-card:hover .team img {
+            transform: scale(1.08);
+            filter: drop-shadow(0 4px 16px rgba(0,230,118,0.2));
+        }
         .team-name {
-            font-family: 'Syne', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--text);
             text-align: center;
@@ -449,36 +481,39 @@
         }
 
         .vs-text {
-            font-family: 'Syne', sans-serif;
-            font-size: 11px;
-            font-weight: 800;
+            font-family: 'Oswald', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
             color: var(--text-dim);
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
         }
 
         .watch-btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-            color: var(--ink);
-            font-family: 'Syne', sans-serif;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
+            background: linear-gradient(135deg, #00ff87 0%, #00cc66 100%);
+            color: #030508;
+            font-family: 'Oswald', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
-            padding: 10px 22px;
-            border-radius: 8px;
+            padding: 11px 24px;
+            border-radius: 100px;
             border: none;
             cursor: pointer;
-            transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
-            box-shadow: 0 4px 20px rgba(201,168,76,0.25);
+            transition: box-shadow 0.25s, transform 0.15s;
+            box-shadow: 0 0 18px rgba(0,230,118,0.35), 0 4px 16px rgba(0,0,0,0.3);
             white-space: nowrap;
+            position: relative;
+            z-index: 1;
         }
         .watch-btn:hover {
-            opacity: 0.92;
-            transform: scale(1.04);
-            box-shadow: 0 6px 28px rgba(201,168,76,0.4);
+            transform: scale(1.06) translateY(-1px);
+            box-shadow: 0 0 28px rgba(0,255,135,0.55), 0 6px 20px rgba(0,0,0,0.35);
         }
+        .watch-btn:active { transform: scale(0.98); }
 
         /* ── LEAGUE DIVIDER ── */
         .league-divider {
@@ -518,19 +553,21 @@
             gap: 10px;
         }
         .stat-card {
-            background: var(--ink3);
-            border: 1px solid var(--border);
+            background: linear-gradient(160deg, var(--ink3) 0%, var(--ink2) 100%);
+            border: 1px solid rgba(0,230,118,0.1);
             border-radius: 12px;
             padding: 16px;
             text-align: center;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.3);
         }
         .stat-number {
-            font-family: 'Syne', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--neon);
             line-height: 1;
             margin-bottom: 4px;
+            text-shadow: 0 0 12px rgba(0,230,118,0.4);
         }
         .stat-label {
             font-size: 10px;
@@ -692,6 +729,14 @@
         .footer a { color: var(--text-muted); text-decoration: none; }
         .footer a:hover { color: var(--gold); }
     </style>
+    <!-- Google Analytics GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZRF683B0N"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2ZRF683B0N');
+    </script>
 </head>
 <body>
 
@@ -806,48 +851,26 @@
     <!-- MATCH CARDS -->
     <main class="matches-wrap">
 
-        <div class="section-label"><span class="dot-accent"></span> 14 April 2026 · Live Matches <span class="dot-accent"></span></div>
+        <div class="section-label"><span class="dot-accent"></span> 27 April 2026 · Live Matches <span class="dot-accent"></span></div>
 
-        <!-- Bayern Munich vs Real Madrid -->
-        <article class="match-card" onclick="location.href='bayern-munich-vs-real-madrid-live-stream.html'" style="cursor:pointer;">
+        <!-- Manchester United vs Brentford -->
+        <article class="match-card" onclick="location.href='manchester-united-vs-brentford-live-stream.html'" style="cursor:pointer;">
             <div class="card-header">
                 <div class="card-live"><span class="dot"></span> Live Now</div>
-                <div class="card-league">⭐ UEFA Champions League</div>
+                <div class="card-league">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</div>
             </div>
             <div class="match-body">
                 <div class="team">
-                    <img src="https://crests.football-data.org/5.png" alt="Bayern Munich">
-                    <span class="team-name">Bayern Munich</span>
+                    <img src="https://crests.football-data.org/66.png" alt="Manchester United">
+                    <span class="team-name">Man United</span>
                 </div>
                 <div class="match-center">
                     <span class="vs-text">VS</span>
-                    <a href="bayern-munich-vs-real-madrid-live-stream.html" class="watch-btn" onclick="event.stopPropagation()">Watch Live</a>
+                    <a href="manchester-united-vs-brentford-live-stream.html" class="watch-btn" onclick="event.stopPropagation()">Watch Live</a>
                 </div>
                 <div class="team">
-                    <img src="https://crests.football-data.org/86.png" alt="Real Madrid">
-                    <span class="team-name">Real Madrid</span>
-                </div>
-            </div>
-        </article>
-
-        <!-- Arsenal vs Sporting CP -->
-        <article class="match-card" onclick="location.href='arsenal-vs-sporting-cp-live-stream.html'" style="cursor:pointer;">
-            <div class="card-header">
-                <div class="card-live"><span class="dot"></span> Live Now</div>
-                <div class="card-league">⭐ UEFA Champions League</div>
-            </div>
-            <div class="match-body">
-                <div class="team">
-                    <img src="https://crests.football-data.org/57.png" alt="Arsenal">
-                    <span class="team-name">Arsenal</span>
-                </div>
-                <div class="match-center">
-                    <span class="vs-text">VS</span>
-                    <a href="arsenal-vs-sporting-cp-live-stream.html" class="watch-btn" onclick="event.stopPropagation()">Watch Live</a>
-                </div>
-                <div class="team">
-                    <img src="https://crests.football-data.org/498.png" alt="Sporting CP">
-                    <span class="team-name">Sporting CP</span>
+                    <img src="https://crests.football-data.org/402.png" alt="Brentford">
+                    <span class="team-name">Brentford</span>
                 </div>
             </div>
         </article>
