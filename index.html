@@ -167,8 +167,8 @@ body{background:var(--ink);color:var(--text);font-family:'DM Sans',sans-serif;mi
 .ldot{width:5px;height:5px;background:var(--red);border-radius:50%;animation:blink 1.2s ease-in-out infinite;box-shadow:0 0 5px var(--red)}
 .cteams{padding:13px 13px 11px;display:flex;align-items:center;justify-content:space-between;gap:7px}
 .cteam{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1}
-.clogo{width:44px;height:44px;border-radius:50%;overflow:hidden;background:rgba(13,16,34,.9);border:2px solid rgba(212,160,23,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.clogo img{width:100%;height:100%;object-fit:cover}
+.clogo{width:52px;height:52px;border-radius:50%;overflow:hidden;background:rgba(6,8,20,.95);border:2px solid rgba(212,160,23,.32);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 14px rgba(212,160,23,.12),inset 0 1px 0 rgba(255,255,255,.06)}
+.clogo img{width:90%;height:90%;object-fit:contain;filter:drop-shadow(0 1px 4px rgba(0,0,0,.6))}
 .ko-logo{display:flex;align-items:center;justify-content:center}
 .cname{font-family:'Oswald',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text);text-align:center;line-height:1.1}
 .cvs{font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;color:var(--dim);letter-spacing:3px;flex-shrink:0}
@@ -277,24 +277,34 @@ document.getElementById('tgOverlay').addEventListener('click',function(e){ if(e.
 </header>
 
 <div class="tabs-wrap"><div class="tabs">
-  <button class="tab-btn active" onclick="switchTab('group',this)">🔴 Live Now</button>
+  <button class="tab-btn active" onclick="switchTab('group',this)">🔴 Live Now (1)</button>
   <button class="tab-btn" onclick="switchTab('knockout',this)">⚔️ Knockout Rounds</button>
 </div></div>
 
 <div class="filter-bar" id="grp-filter" style="display:none!important"></div>
 
 <div id="grp-content">
-<div class="section day-block" data-date="12 June 2026">
-  <div class="sec-hdr"><div class="sec-lbl">📅 12 June 2026</div><div class="sec-line"></div><div class="sec-cnt">1 Match</div></div>
-  <div class="grid"><a class="card live-card" data-group="D" href="usa-vs-paraguay-live-stream.html">
-  <div class="ctop"><div class="cgrp">⚽ Group D</div><div class="cbadge live"><span class="ldot"></span> Live</div></div>
-  <div class="cteams">
-    <div class="cteam"><div class="clogo"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a9/US_Soccer_logo.svg/200px-US_Soccer_logo.svg.png" alt="USA" onerror="this.onerror=null;this.src='https://flagcdn.com/w160/us.png'" loading="lazy"></div><div class="cname">USA</div></div>
-    <div class="cvs">VS</div>
-    <div class="cteam"><div class="clogo"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b7/Asociaci%C3%B3n_Paraguaya_de_F%C3%BAtbol.svg/200px-Asociaci%C3%B3n_Paraguaya_de_F%C3%BAtbol.svg.png" alt="Paraguay" onerror="this.onerror=null;this.src='https://flagcdn.com/w160/py.png'" loading="lazy"></div><div class="cname">Paraguay</div></div>
+<div class="section day-block" data-date="15 June 2026">
+  <div class="sec-hdr"><div class="sec-lbl">📅 15 June 2026</div><div class="sec-line"></div><div class="sec-cnt">1 Match</div></div>
+  <div class="grid">
+
+    <a class="card live-card" data-group="C" href="saudi-arabia-vs-uruguay-live-stream.html">
+      <div class="ctop"><div class="cgrp">⚽ Group C</div><div class="cbadge live"><span class="ldot"></span> Live</div></div>
+      <div class="cteams">
+        <div class="cteam">
+          <div class="clogo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/320px-Flag_of_Saudi_Arabia.svg.png" alt="Saudi Arabia" loading="lazy"></div>
+          <div class="cname">Saudi Arabia</div>
+        </div>
+        <div class="cvs">VS</div>
+        <div class="cteam">
+          <div class="clogo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/320px-Flag_of_Uruguay.svg.png" alt="Uruguay" loading="lazy"></div>
+          <div class="cname">Uruguay</div>
+        </div>
+      </div>
+      <div class="cbot"><span class="cvenue">🏟 <span>Arrowhead Stadium, Kansas City</span></span><span class="cwatch">▶ Watch Now</span></div>
+    </a>
+
   </div>
-  <div class="cbot"><span class="cvenue">🏟 <span>SoFi Stadium, Los Angeles</span></span><span class="cwatch">▶ Watch Now</span></div>
-</a></div>
 </div>
 </div>
 <div id="ko-content">
